@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'student_management/style.css' %}">
+<link rel="stylesheet" href="{% static 'student_management/reg.css' %}">
 
 {% if messages %}
   <div class="messages">
@@ -14,7 +14,7 @@
 {% endif %}
 
 <div class="container1">
-    <h2>Student Registration</h2>
+    <h2><center>Student Registration</center></h2>
     <div class="container-reg">
         <form method="post" class="registration-form" enctype="multipart/form-data">
             {% csrf_token %}

@@ -1,0 +1,146 @@
+/* General Page */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f0fdf4, #e0f2fe);
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for Title + Form */
+.container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 15px;
+}
+
+.container1 h2 {
+    font-size: 28px;
+    color: #2e7d32;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Registration Card */
+.container-reg {
+    width: 800px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Grid Layout for Inputs */
+.registration-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+}
+
+/* Label + Inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #22c55e;
+    background: #ffffff;
+    outline: none;
+    box-shadow: 0 0 6px rgba(34,197,94,0.4);
+}
+
+/* Error Messages */
+.error-messages p {
+    color: #dc2626;
+    font-size: 13px;
+    margin: 4px 0 0 0;
+}
+
+/* Submit Button */
+.registration-form button {
+    grid-column: span 2;
+    padding: 14px;
+    background: linear-gradient(135deg, #22c55e, #0284c7);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.registration-form button:hover {
+    transform: scale(1.03);
+    background: linear-gradient(135deg, #16a34a, #0369a1);
+}
+
+/* Links */
+.registration-form a {
+    grid-column: span 2;
+    text-align: center;
+    margin-top: 10px;
+    color: #0284c7;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.registration-form a:hover {
+    color: #075985;
+    text-decoration: underline;
+}
+
+/* Messages (Django messages framework) */
+.messages {
+    max-width: 800px;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+.alert {
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.alert.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+.alert.info {
+    background: #e0f2fe;
+    color: #075985;
+    border: 1px solid #38bdf8;
+}

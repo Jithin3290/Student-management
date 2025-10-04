@@ -15,6 +15,7 @@ class Department(models.Model):
 class CustomUser(AbstractUser):
     #extra fields
     STATUS_CHOICES = (
+        # first male is stored in database and second male is stored show in form
         ('Male', 'Male'),
         ('Female', 'Female'),
     )
@@ -29,7 +30,7 @@ class CustomUser(AbstractUser):
     gender = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Male')
 
     #cource purchasing 
-    purchased_courses = models.ManyToManyField("AddOnCourse", related_name="students", blank=True) # a student can purchase many course
+    purchased_courses = models.ManyToManyField("AddOnCourse", related_name="students", blank=True) # a student can purchase many course and one course can purchase many students
     # Default flags
     is_staff = models.BooleanField(default=False)       # Students are not staff they cant get into admin
     is_superuser = models.BooleanField(default=False)   # Only superuser manually set
@@ -65,8 +66,8 @@ class CoursePurchaseRequest(models.Model):
     completed_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
-        unique_together = ('student', 'course')  # avoid duplicate pending requests
+        unique_together = ('student', 'course')  # a student can only request a course once
 
     def __str__(self):
-        return f"{self.student.username} -> {self.course.title} ({self.status})"
+        return f"{self.student.username} -> {self.course.course} ({self.status})"
     

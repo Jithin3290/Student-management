@@ -20,7 +20,7 @@ class FullCustomUserChangeForm(forms.ModelForm):
         }
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        qs = CustomUser.objects.exclude(pk=self.instance.pk).filter(email=email)
+        qs = CustomUser.objects.exclude(pk=self.instance.pk).filter(email=email)#exclude the current student so no duplicate email
         if qs.exists():
             raise forms.ValidationError("This email is already in use by another student.")
         return email

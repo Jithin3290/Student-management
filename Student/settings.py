@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'student_management.middleware.BlockAccessMiddleware',#my middleware to avoid admin to studnet side
+    'student_management.middleware.BlockAccessMiddleware',#extra middleware to avoid admin to student side
 ]
 
 ROOT_URLCONF = 'Student.urls'
@@ -78,14 +78,13 @@ WSGI_APPLICATION = 'Student.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'student_django_project',
-        'USER': 'admin',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'studentdb',       # your database name
+        'USER': 'postgres',        # your postgres username
+        'PASSWORD': '12345', # your postgres password
+        'HOST': 'localhost',       # or IP if using remote DB
+        'PORT': '5433',            # default PostgreSQL port
     }
 }
-
 
 
 # Password validation
@@ -129,7 +128,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
-AUTH_USER_MODEL = 'student_management.CustomUser' #tell django which model to authenticate, control db to where users to store
+AUTH_USER_MODEL = 'student_management.CustomUser' #tell django which model to authenticate, control db to where users to store,this is custom so we can add phone,rn etc column
 
 MEDIA_URL = '/media/'
 
@@ -142,6 +141,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'          
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'adwaith7727@gmail.com'
-EMAIL_HOST_PASSWORD = 'sevbjnmllzecydig'   
+EMAIL_HOST_USER = 'jithinappu2085@gmail.com'
+EMAIL_HOST_PASSWORD = 'wdvs tnad whtp kqom'   
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

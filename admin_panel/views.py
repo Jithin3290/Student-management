@@ -21,7 +21,7 @@ def std_view(request):
     gender_filter = request.GET.get('gender', '')
     
     students = CustomUser.objects.all().order_by('roll_number')
-    
+    # Q want muliple condition like NOT
     if query:
         students = students.filter(
             Q(username__icontains=query) |
@@ -52,7 +52,7 @@ def std_add(request):
         form = CustomUserCreationForm(request.POST ,request.FILES)
         if form.is_valid():
             student=form.save()
-            subject = "Welcome to ABC College of Arts and Science"
+            subject = "Welcome to Thomas College of Arts and Science"
             message = f"Hi {student.username},\n\nWelcome! Your account has been successfully created."
             recipient = student.email
             send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [recipient])

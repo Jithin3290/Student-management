@@ -4,6 +4,7 @@ from .models import CustomUser, Department
 
 
 # Registration Form
+# UserCreationForm it contain username and password1 and password2
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     age = forms.IntegerField(required=True)
@@ -22,6 +23,7 @@ class CustomUserCreationForm(UserCreationForm):
 
         
 # Login Form
+# AuthenticationForm check the username and password in backend
 class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
         model = CustomUser

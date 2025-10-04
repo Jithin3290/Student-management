@@ -24,6 +24,6 @@ urlpatterns = [
     path('',include('student_management.urls')),
     path('adm/',include('admin_panel.urls')),
 ]
-
+# uploaded files are saved in media/profile folder 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

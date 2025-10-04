@@ -22,7 +22,7 @@ def register_view(request):
         if form.is_valid():
             student = form.save()
             #email sending
-            subject = "Welcome to ABC College"
+            subject = "Welcome to St. Thomas Institute College"
             message = f"Hi {student.username},\n\nWelcome! Your account has been successfully created."
             recipient = student.email
             send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [recipient])
@@ -43,7 +43,7 @@ def login_view(request):
             user = form.get_user()
             if user.is_superuser or user.is_staff:
                 messages.error(request, 'Admins cannot log in here. Please use the admin panel.')
-            login(request, user)
+            login(request, user)# built in which store user id in session
             messages.success(request, f'Welcome back, {user.username}!')
             if user.is_superuser:
                 return redirect('/adm/')
@@ -57,7 +57,7 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 # Logout View
-
+# clear session
 def logout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out.')
